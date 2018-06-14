@@ -1,3 +1,8 @@
 = form_tag properties_path, method: :get do
-  = text_field_tag :post_code
-  = submit_tag "Find"
+  .grid-x.grid-padding-x
+    .medium-6.cell
+      = label_tag 'postcode', 'Find address by postcode'
+      .input-group
+        = text_field_tag :post_code, '', class: 'input-group-field', placeholder: 'Enter postcode...'
+        .input-group-button
+          = button_tag 'Find', class: 'button', type: :submit
