@@ -1,24 +1,13 @@
-# README
+# RCC alpha
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Setup
 
-Things you may want to cover:
+You will either need access to the Hackney API, or set up [Mock Hackney API](https://github.com/LBHackney-IT/mock_hackney_api) locally.
 
-* Ruby version
+If you run Mock Hackney API on port 3001 using `rails s -p 3001`, then add `HACKNEY_API_ROOT=http://localhost:3001` to this app's .env file and:
 
-* System dependencies
+- `bundle`
+- `rake db:setup`
+- `rails s`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+and visit http://localhost:3000/properties

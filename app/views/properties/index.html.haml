@@ -1,8 +1,15 @@
 = form_tag properties_path, method: :get do
   .grid-x.grid-padding-x
     .medium-6.cell
-      = label_tag 'postcode', 'Find address by postcode'
+      = label_tag 'post_code', 'Find address by postcode'
       .input-group
         = text_field_tag :post_code, '', class: 'input-group-field', placeholder: 'Enter postcode...'
         .input-group-button
           = button_tag 'Find', class: 'button', type: :submit
+
+- if defined?(@properties)
+  - if @properties.present?
+    - @properties.each do |property|
+      = link_to property.address, property_path(property.property_reference)
+  - else
+    %p No properties found
