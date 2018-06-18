@@ -8,7 +8,7 @@ RSpec.feature 'Admin can find a property and select resident' do
     stub_residents_for_property
     stub_property_find
     visit '/properties/'
-    fill_in 'Find address by postcode', with: 'E5 8TE'
+    fill_in 'Find a property by postcode', with: 'E5 8TE'
     click_on 'Find'
     expect(page).to have_content "1 Estate House"
     expect(page).to have_content "Hackney Block"
@@ -23,7 +23,7 @@ RSpec.feature 'Admin can find a property and select resident' do
   scenario 'with incorrect postcode' do
     stub_property_search([])
     visit '/properties/'
-    fill_in 'Find address by postcode', with: 'E5 8TE'
+    fill_in 'Find a property by postcode', with: 'E5 8TE'
     click_on 'Find'
     expect(page).to have_content "No properties found"
   end
@@ -35,7 +35,7 @@ RSpec.feature 'Admin can find a property and select resident' do
     stub_property_find
     stub_residents_for_property([])
     visit '/properties/'
-    fill_in 'Find address by postcode', with: 'E5 8TE'
+    fill_in 'Find a property by postcode', with: 'E5 8TE'
     click_on 'Find'
     expect(page).to have_content "1 Estate House"
     expect(page).to have_content "Hackney Block"

@@ -1,7 +1,7 @@
 .grid-x.grid-padding-x
   .medium-7.cell
-    %h4 Find a property by postcode
     = form_tag properties_path, method: :get do
+      = label_tag 'post_code', 'Find a property by postcode', class: 'h4'
       .input-group
         = text_field_tag :post_code, '', class: 'input-group-field', placeholder: 'Enter postcode...'
         .input-group-button

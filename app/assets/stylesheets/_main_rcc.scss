@@ -21,11 +21,31 @@
   p.title {
     margin-bottom: 0;
   }
-
-  .list-item {
-    display: block;
-  }
 }
+
+/*
+ * Typography classes
+ * Current hack until this is resolved https://github.com/zurb/foundation-sites/issues/9483
+ */
+
+  .h4 {
+    $header-styles-h4: (
+      small: (
+        'h4': ('font-size': 18),
+      ),
+      medium: (
+        'h4': ('font-size': 25),
+      ),
+    );
+  }
+
+/*
+ * List styles
+ */
+
+ .list-item {
+   display: block;
+ }
 
 .list-group {
   list-style: none;
