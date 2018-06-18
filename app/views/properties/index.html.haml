@@ -1,17 +1,24 @@
-= form_tag properties_path, method: :get do
-  .grid-x.grid-padding-x
-    .medium-6.cell
-      = label_tag 'post_code', 'Find address by postcode'
+.grid-x.grid-padding-x
+  .medium-7.cell
+    %h4 Find a property by postcode
+    = form_tag properties_path, method: :get do
       .input-group
         = text_field_tag :post_code, '', class: 'input-group-field', placeholder: 'Enter postcode...'
         .input-group-button
           = button_tag 'Find', class: 'button', type: :submit
 
-- if defined?(@properties)
-  - if @properties.present?
-    - @properties.each do |property|
-      = link_to property.address, property_path(property.property_reference)
-  - else
-    %p No properties found
+    - if defined?(@properties)
+      - if @properties.present?
+        %h4
+          List of properties for
+          = params[:post_code]
 
-= render partial: 'estate_info'
+        %ul.list-group
+          - @properties.each do |property|
+            %li.list-group-item
+              = link_to property.address, property_path(property.property_reference)
+      - else
+        %p No properties found
+
+  .medium-5.cell.sidebar
+    = render partial: 'estate_info'
