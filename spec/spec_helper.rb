@@ -96,4 +96,5 @@ RSpec.configure do |config|
 =end
 end
 
+ENV["HACKNEY_API_ROOT"] = "http://localhost:3000"
 $LOAD_PATH << File.expand_path('../../', __FILE__)
