@@ -1,0 +1,71 @@
+ @import "settings";
+/*
+ * Global styles
+ */
+
+.main {
+  padding-top: 2em;
+}
+
+.side-nav {
+  border-right: 1px solid $medium-gray;
+  height: 100vh;
+  background-color: $light-gray;
+}
+
+.sidebar {
+  border-left: 1px solid $medium-gray;
+  height: 100vh;
+  background-color: $white;
+
+  p.title {
+    margin-bottom: 0;
+  }
+}
+
+/*
+ * Typography classes
+ * Current hack until this is resolved https://github.com/zurb/foundation-sites/issues/9483
+ */
+
+  .h4 {
+    $header-styles-h4: (
+      small: (
+        'h4': ('font-size': 18),
+      ),
+      medium: (
+        'h4': ('font-size': 25),
+      ),
+    );
+  }
+
+/*
+ * List styles
+ */
+
+ .list-item {
+   display: block;
+ }
+
+.list-group {
+  list-style: none;
+  margin-left: 0;
+
+  .list-group-item {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: -1px;
+    border: 1px solid $light-gray;
+    padding: $global-padding/2 0 $global-padding/2 $global-padding;
+
+    &:hover {
+      background-color: $light-gray;
+    }
+
+    a {
+      display: block;
+      width: 100%;
+    }
+  }
+}

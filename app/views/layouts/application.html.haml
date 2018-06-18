@@ -14,6 +14,11 @@
 
   %body
 
-    .grid-container
+    .grid-container.fluid.main
+      .grid-x.grid-padding-x
+        .medium-2.cell.side-nav
+          %h4 side nav
 
-      = yield
+        .medium-10.cell
+
+          = yield

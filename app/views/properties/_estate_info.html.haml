@@ -1,18 +1,70 @@
 - if defined?(@properties) && @properties.present?
-  %h2 Block information
+  %h4
+    Overview for
+    = params[:post_code]
 
-  = @block.address
-  = @block.managerName
-  = @block.managerEmail
-  = @block.managerPhone
-  = @block.floors
-  = @block.entranceDoors
-  = @block.lifts
-  = @block.heating
+  %p.title
+    %strong
+      Block
+  %p
+    = @block.address
 
-  %h2 Estate information
+  %p.title
+    %strong
+      Patch Manager
+  %p
+    %span.list-item
+      = @block.managerName
+    %span.list-item
+      = mail_to @block.managerEmail
+    %span.list-item
+      = link_to @block.managerPhone, "tel:#{@block.managerPhone}"
 
-  = @estate.address
-  = @estate.managerName
-  = @estate.managerEmail
-  = @estate.managerPhone
+  %p.title
+    %strong
+      Block overview
+
+  .grid-x
+    .cell.medium-6
+      %p
+        %span.list-item
+          = @block.floors
+          Floors
+
+        %span.list-item
+          = @block.entranceDoors
+          Entrance Doors
+
+        %span.list-item
+          - unless @block.lifts = 1
+            = @block.lifts
+            Lifts
+
+          - else
+            = @block.lifts
+            Lift
+
+    .cell.medium-6
+      %p
+        %span.list-item
+          = @block.heating
+          Heating
+
+
+  %p.title
+    %strong
+      Estate
+  %p
+    %span.list-item
+      = @estate.address
+
+  %p.title
+    %strong
+      Estate Manager
+  %p
+    %span.list-item
+      = @estate.managerName
+    %span.list-item
+      = mail_to @estate.managerEmail
+    %span.list-item
+      = link_to @estate.managerPhone, "tel:#{@estate.managerPhone}"
