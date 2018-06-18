@@ -1,0 +1,9 @@
+%h2= @property.address
+
+- @residents.each do |resident|
+  = link_to resident.name
+
+- if @residents.blank?
+  No residents found
+
+= link_to "The resident is not on the list"
