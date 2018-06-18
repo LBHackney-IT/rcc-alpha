@@ -14,6 +14,14 @@ class HackneyApi
     @json_api.get('hackneyrepairs/v1/properties/' + property_reference)
   end
 
+  def get_estate_for_dwelling(property_reference:)
+    @json_api.get('hackneyrepairs/v1/properties/' + property_reference + '/estate')
+  end
+
+  def get_block_for_dwelling(property_reference:)
+    @json_api.get('hackneyrepairs/v1/properties/' + property_reference + '/block')
+  end
+
   def create_repair(repair_params)
     @json_api.post('hackneyrepairs/v1/repairs', repair_params)
   end
