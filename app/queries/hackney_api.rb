@@ -22,6 +22,15 @@ class HackneyApi
     @json_api.get('hackneyrepairs/v1/properties/' + property_reference + '/block')
   end
 
+  def find_residents_by_property_reference(property_reference:)
+    response = @json_api.get(
+      'hackneyrepairs/v1/properties/' +
+      property_reference +
+      '/residents'
+    )
+    response.fetch('residents')
+  end
+
   def create_repair(repair_params)
     @json_api.post('hackneyrepairs/v1/repairs', repair_params)
   end

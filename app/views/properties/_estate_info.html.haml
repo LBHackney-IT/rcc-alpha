@@ -1,0 +1,18 @@
+- if defined?(@properties) && @properties.present?
+  %h2 Block information
+
+  = @block.address
+  = @block.managerName
+  = @block.managerEmail
+  = @block.managerPhone
+  = @block.floors
+  = @block.entranceDoors
+  = @block.lifts
+  = @block.heating
+
+  %h2 Estate information
+
+  = @estate.address
+  = @estate.managerName
+  = @estate.managerEmail
+  = @estate.managerPhone

@@ -18,6 +18,20 @@ module RCCStubs
     )
   end
 
+  def stub_property_find
+    stub_request(:get, "http://localhost:3000/hackneyrepairs/v1/properties/000001").
+    to_return(
+      status: 200,
+      body: {
+        address: "Hackney Block",
+        postcode:"E58TE",
+        propertyReference:"B00001",
+        maintainable:true,
+      }.to_json,
+      headers: {},
+    )
+  end
+
   def stub_block_for_property
     stub_request(:get, "http://localhost:3000/hackneyrepairs/v1/properties/000001/block").
     to_return(
@@ -53,4 +67,28 @@ module RCCStubs
       headers: {},
     )
   end
+
+  def stub_residents_for_property(residents=nil)
+    residents = residents || [
+      {
+        residentReference: "83647",
+        name: "Jim Resident",
+        last_call: 2.days.ago,
+      },
+      {
+        residentReference: "83648",
+        name: "Janet Resident",
+      },
+    ]
+
+    stub_request(:get, "http://localhost:3000/hackneyrepairs/v1/properties/000001/residents").
+    to_return(
+      status: 200,
+      body: {
+        "residents": residents
+      }.to_json,
+      headers: {},
+    )
+  end
+
 end
