@@ -7,6 +7,7 @@ RSpec.feature 'Admin can find a property and select resident' do
     stub_estate_for_property
     stub_residents_for_property
     stub_property_find
+    stub_repairs_for_property
     visit '/properties/'
     fill_in 'Find a property by postcode', with: 'E5 8TE'
     click_on 'Find'

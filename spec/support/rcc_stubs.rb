@@ -25,7 +25,7 @@ module RCCStubs
       body: {
         address: "Hackney Block",
         postcode:"E58TE",
-        propertyReference:"B00001",
+        propertyReference:"000001",
         maintainable:true,
       }.to_json,
       headers: {},
@@ -59,7 +59,7 @@ module RCCStubs
       body: {
         address: "Hackney Estate",
         postcode:"E58TE",
-        propertyReference:"B00001",
+        propertyReference:"E00001",
         managerName:"Jane Smith",
         managerEmail:"janes@test.com",
         managerPhone:"07777777778",
@@ -86,6 +86,32 @@ module RCCStubs
       status: 200,
       body: {
         "residents": residents
+      }.to_json,
+      headers: {},
+    )
+  end
+
+  def stub_repairs_for_property(repairs=nil)
+    repairs = repairs || [
+      {
+        repairRequestReference: "23487",
+        propertyReference: "000001",
+        problemDescription: "Broken Light",
+        priority: "I",
+      },
+      {
+        repairRequestReference: "345928",
+        propertyReference: "000001",
+        problemDescription: "Leaking Tab",
+        priority: "E",
+      },
+    ]
+
+    stub_request(:get, "http://localhost:3000/hackneyrepairs/v1/properties/000001/repairs").
+    to_return(
+      status: 200,
+      body: {
+        "repairs": repairs
       }.to_json,
       headers: {},
     )

@@ -1,9 +1,9 @@
 %h2= @property.address
 
 - @residents.each do |resident|
-  = link_to resident.name
+  = link_to resident.name, property_repairs_path(@property.propertyReference, resident: resident.residentReference)
 
 - if @residents.blank?
   No residents found
 
-= link_to "The resident is not on the list"
+= link_to "The resident is not on the list", property_repairs_path(@property.propertyReference)
