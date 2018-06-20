@@ -1,0 +1,27 @@
+%h4
+  Overview for dwelling
+%p
+  = @property.address
+
+.grid-x
+  .cell.medium-6
+    %p
+      %span.list-item
+        = @property.residents
+        residents
+
+      - if @property.floor
+        %span.list-item
+          = "#{@property.floor}#{@property.floor.ordinal} floor"
+
+      %span.list-item
+        = pluralize @property.toilets, 'toilet'
+
+  .cell.medium-6
+    %p
+      %span.list-item
+        Heating:
+        = @property.heating
+
+      %span.list-item
+        = pluralize @property.bathrooms, 'bathroom'
