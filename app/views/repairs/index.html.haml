@@ -1,3 +1,10 @@
+- if @property.floor
+  = "#{@property.floor}#{@property.floor.ordinal} floor"
+= pluralize @property.residents, 'resident'
+= @property.heating
+= pluralize @property.toilets, 'toilet'
+= pluralize @property.bathrooms, 'bathroom'
+
 - @repairs.each do |repair|
   = repair.problemDescription
   = repair.repairRequestReference
