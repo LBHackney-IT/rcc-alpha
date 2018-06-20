@@ -1,70 +1,60 @@
-- if defined?(@properties) && @properties.present?
-  %h4
-    Overview for
-    = params[:post_code]
+%h4
+  Overview for
+  = @block.postcode
 
-  %p.title
-    %strong
-      Block
-  %p
-    = @block.address
+%p.title
+  %strong
+    Block
+%p
+  = @block.address
 
-  %p.title
-    %strong
-      Patch Manager
-  %p
-    %span.list-item
-      = @block.managerName
-    %span.list-item
-      = mail_to @block.managerEmail
-    %span.list-item
-      = link_to @block.managerPhone, "tel:#{@block.managerPhone}"
+%p.title
+  %strong
+    Patch Manager
+%p
+  %span.list-item
+    = @block.managerName
+  %span.list-item
+    = mail_to @block.managerEmail
+  %span.list-item
+    = link_to @block.managerPhone, "tel:#{@block.managerPhone}"
 
-  %p.title
-    %strong
-      Block overview
+%p.title
+  %strong
+    Block overview
 
-  .grid-x
-    .cell.medium-6
-      %p
-        %span.list-item
-          = @block.floors
-          Floors
+.grid-x
+  .cell.medium-6
+    %p
+      %span.list-item
+        = pluralize @block.floors, 'floor'
 
-        %span.list-item
-          = @block.entranceDoors
-          Entrance Doors
+      %span.list-item
+        = pluralize @block.entranceDoors, 'entrance door'
 
-        %span.list-item
-          - unless @block.lifts = 1
-            = @block.lifts
-            Lifts
+      %span.list-item
+        = pluralize @block.lifts, 'lift'
 
-          - else
-            = @block.lifts
-            Lift
+  .cell.medium-6
+    %p
+      %span.list-item
+      Heating:
+      = @block.heating
 
-    .cell.medium-6
-      %p
-        %span.list-item
-          = @block.heating
-          Heating
+%p.title
+  %strong
+    Estate
+%p
+  %span.list-item
+    = @estate.address
 
-
-  %p.title
-    %strong
-      Estate
-  %p
-    %span.list-item
-      = @estate.address
-
-  %p.title
-    %strong
-      Estate Manager
-  %p
-    %span.list-item
-      = @estate.managerName
-    %span.list-item
-      = mail_to @estate.managerEmail
-    %span.list-item
-      = link_to @estate.managerPhone, "tel:#{@estate.managerPhone}"
+%p.title
+  %strong
+    Estate Manager
+%p
+  %span.list-item
+    = @estate.managerName
+  %span.list-item
+    = mail_to @estate.managerEmail
+  %span.list-item
+    = link_to @estate.managerPhone, "tel:#{@estate.managerPhone}"

@@ -1,9 +1,20 @@
-%h2= @property.address
+.grid-x.grid-padding-x
+  .medium-7.cell
+    %h2
+      = @property.address
+      = @property.postcode
 
-- @residents.each do |resident|
-  = link_to resident.name, property_repairs_path(@property.propertyReference, resident: resident.residentReference)
+    %ul.list-group
+      - @residents.each do |resident|
+        %li.list-group-item
+          = link_to resident.name, property_repairs_path(@property.propertyReference, resident: resident.residentReference)
 
-- if @residents.blank?
-  No residents found
 
-= link_to "The resident is not on the list", property_repairs_path(@property.propertyReference)
+      - if @residents.blank?
+        No residents found
+
+    = link_to "The resident is not on the list", property_repairs_path(@property.propertyReference)
+
+  .medium-5.cell.sidebar
+    = render partial: 'dwelling_info'
+    = render partial: 'estate_info'

@@ -21,4 +21,5 @@
         %p No properties found
 
   .medium-5.cell.sidebar
-    = render partial: 'estate_info'
+    - if defined?(@properties) && @properties.present?
+      = render partial: 'estate_info'
