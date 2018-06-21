@@ -7,5 +7,5 @@
 
 - @repairs.each do |repair|
   = repair.problemDescription
-  = repair.repairRequestReference
+  = link_to repair.repairRequestReference, property_repair_path(@property.propertyReference, repair.repairRequestReference)
   = repair.priority
