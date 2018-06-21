@@ -1,0 +1,195 @@
+= link_to "Go back to repairs history (dwelling)"
+%h4 Repair details
+.grid-x.grid-padding-x.repair-details-page
+  .cell
+
+    -# Repair request card
+    %h6
+      Repair request
+    -# The card top border color will change based on class // { class: status-progress, status-complete, status-cancelled }
+    .repair.card.status-progress
+      .card-section
+        .grid-x
+          .cell
+            -# repair_req_number
+            %span.leading-number
+              0257899
+            -# Repair priority
+            %span.priority
+              Normal
+            %span.date
+              Created 3 days ago, 20 Jun
+            -# Show each trade from tasks from all WO
+            %span.trade.float-right
+              PL
+            %span.trade.float-right
+              CP
+            %span.trade.float-right
+              OK
+            %hr.tight
+        .grid-x.grid-margin-x
+          .cell.medium-8
+            %p.repair-description
+              PLM: pls repair flush handle to WC, loose and coming away as per oap tnt
+            .cell
+              -# Repair request status based on completion of tasks in the work order
+              %span.status-text.list-item
+                Tasks awaiting completion
+              -# Summary of status for tasks
+              %span.status-breakdown.list-item
+                1 task in progress, 2 tasks completed
+          .cell.medium-4
+            %span.tenant-info.list-item
+              Reported by Sandra Tenant
+            %span.list-item
+              tel: 07446788345
+            %br
+            %span.agent-info.list-item
+              Raised by Tom Jerry
+            %span.list-item
+              tom.jerry@hackney.gov.uk
+        .grid-x.grid-margin-x
+
+
+    -# Repair work orders
+    %h6
+      Repair work order 1 of 2
+    -# The card top border color will change based on class // { class: status-progress, status-complete, status-cancelled }
+    .repair.card.status-progress
+      .card-section
+        .grid-x
+          .cell
+            -# wo_number
+            %span.leading-number
+              0344521
+            -# Show each trade from tasks for this WO
+            %span.trade.float-right
+              PL
+            -# Status text and it's colour different based on 'status'
+            -# Examples:
+            -# %span.status-text-completed
+               Completed
+               %span
+                on
+            -# %span.status-text-cancelled
+               Cancelled
+              %span
+               on
+            %span.status-text-progress
+              In progress
+            %span
+              expected completion on
+
+            -# Date : use relevant to the context
+            -# In progress: expected_completion date
+            -# Completed: completed_date
+            -# Cancelled: cancelled_date
+            %span.date
+              21 Jun 2018
+            %hr.tight
+        .grid-x.grid-margin-x
+          .cell.medium-8
+            -# Show Attended by if a WO is completed ()
+            %span.list-item
+              Attended by: John Wayne on 21 Jun 2018 at 15:22
+            -# WO Outcome
+            %span.description
+              Job fully Completed
+          .cell.medium-4
+            %span.supplier.list-item
+              Hackney Homes
+            %span.list-item
+            tel: 07446788345
+            %span.list-item
+              Estimated cost: £85.00
+        -# Show notes and tasks
+        .grid-x.grid-padding-x.card-split-heading
+          .cell.medium-6.card-half
+            .h6
+              Notes
+          .cell.medium-6.card-half
+            .h6
+              Tasks
+        .grid-x.grid-padding-x.card-split-content
+          -# NOTES
+          .cell.medium-6.card-half
+            -# For each note in notes show DESC
+            .note
+              %span.list-item.note-helptext
+                21 June 2018 by Sammy Wonder
+              %p
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+            .note
+              %span.list-item.note-helptext
+                25 May 2018 by Gerard of Rivia
+              %p
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+          -# TASKS
+          .cell.medium-6.card-half.no-pad
+            -# For each task in tasks show DESC
+            .task.task-progress
+              .grid-x
+                .cell
+                  SOR:
+                  %span.leading-number
+                    2003002
+                  -# Task examples:
+                  -# %span.status-text-completed
+                     Completed on 26 June 2018
+                  -# %span.status-text-cancelled
+                     Cancelled on 26 June 2018
+                  %span.status-text-progress
+                    Due 23 June 2018
+                  %span.trade-sm.float-right
+                    PL
+
+                .cell
+                  %span
+                    SUPPLIER
+                  %span
+                    Cost: £120
+                .cell
+                  %p
+                    SOR description Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+            .task.task-completed
+              .grid-x
+                .cell
+                  SOR:
+                  %span.leading-number
+                    2003002
+                  %span.status-text-progress
+                    Completed on 22 June 2018
+                  %span.trade-sm.float-right
+                    CP
+
+                .cell
+                  %span
+                    SUPPLIER
+                  %span
+                    Cost: £90
+                .cell
+                  %p
+                    SOR description Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+            .task.task-completed
+              .grid-x
+                .cell
+                  SOR:
+                  %span.leading-number
+                    2003002
+                  %span.status-text-progress
+                    Completed on 21 June 2018
+                  %span.trade-sm.float-right
+                    OK
+
+                .cell
+                  %span
+                    SUPPLIER
+                  %span
+                    Cost: £150
+                .cell
+                  %p
+                    SOR description Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
