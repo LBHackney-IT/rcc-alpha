@@ -14,27 +14,29 @@
 
   %body
 
-    %nav.top-bar
-      .top-bar-left
-        %ul.menu
-          %li.menu-text.app-title
-            Hackney Repairs Contact Centre
-      .top-bar-right
-        %ul.menu
-          %li.menu-text.light.user-name
-            Lisa Roomian
-          %li
-            =link_to "Log out", ' '
+    .grid-y.rcc-app
+      .cell
+        %nav.top-bar
+          .top-bar-left
+            %ul.menu
+              %li.menu-text.app-title
+                Hackney Repairs Contact Centre
+          .top-bar-right
+            %ul.menu
+              %li.menu-text.light.user-name
+                Lisa Roomian
+              %li
+                =link_to "Log out", ' '
 
-    .grid-container.fluid.rcc-app
-      .grid-x.grid-padding-x
-        .medium-2.cell.side-nav
-          %ul.vertical.menu
-            %li.menu-item.is-active
-              =link_to "Find address", '/properties'
-            %li.menu-item
-              =link_to "Find repair", '/properties'
+      .cell
+        .grid-x.grid-padding-x
+          .medium-2.cell.side-nav
+            %ul.vertical.menu
+              %li.menu-item.is-active
+                =link_to "Find address", '/properties'
+              %li.menu-item
+                =link_to "Find repair", '/properties'
 
-        .medium-10.cell.main
+          .medium-10.cell.main
 
-          = yield
+            = yield

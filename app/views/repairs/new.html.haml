@@ -1,0 +1,78 @@
+%header
+  .grid-x.grid-margin-x.header-summary
+    .cell.medium-4
+      %p
+        %strong
+          Property address
+        %span.list-item
+          = @property.address
+
+        %span.list-item
+          = @property.postcode
+
+    .cell.medium-8
+      %strong
+        Resident information
+      .grid-x
+        .cell.medium-6
+          %span.list-item
+            John Tenant
+          %span.list-item
+            07556788932
+        .cell.medium-6
+          %span.list-item
+            Cautionary contact
+
+%nav.grid-x.grid-margin-x#sub-nav
+  %ul.cell.menu.expanded
+    %li.is-active
+      = link_to "Raise a repair", " "
+    %li
+      = link_to "Dwelling repairs", " "
+    %li
+      = link_to "Block repairs", " "
+    %li
+      = link_to "Estate repairs", " "
+    %li
+      = link_to "Tenant's Information", " "
+
+
+.grid-x.grid-margin-x.mini-nav
+  .nav
+    .ul.breadcrumbs
+      %li
+        Raise a repair
+      %li
+        Add repair details
+      %li.disabled
+        Add repair appointment
+
+.grid-x.grid-margin-x.add-repair-section
+  .cell.medium-6.create-repair-form
+    %br
+    = form_tag new_appointment_property_repairs_path(property: @property), method: :get do
+      %p.h6
+        Is this the correct resident's contact number?
+      %p.help-text
+        If yes please continue
+      %strong.h5
+        07556788932
+      %span
+        = link_to "Change", " "
+      %br
+      %br
+      %label
+        Describe repair problem
+        = text_area_tag :problem_description, ' ', :rows => 5
+
+      %label
+        SOR code
+        = text_field_tag :sor_code, ''
+      %p.help-text
+        Please use a Keyfax to find the right SOR code for this repair
+
+      %label
+        Repair priority
+        = text_field_tag :repair_priority, ''
+
+      = button_tag 'Save and next', class: 'button', type: :submit

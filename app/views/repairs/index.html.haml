@@ -1,5 +1,5 @@
 %header
-  .grid-x.grid-margin-x
+  .grid-x.grid-margin-x.header-summary
     .cell.medium-4
       %p
         %strong
@@ -26,7 +26,7 @@
 %nav.grid-x.grid-margin-x#sub-nav
   %ul.cell.menu.expanded
     %li
-      = link_to "Raise a repair", " "
+      = link_to "Raise a repair", new_property_repair_path(property: @property)
     %li.is-active
       = link_to "Dwelling repairs", " "
     %li
@@ -57,7 +57,7 @@
 
   .cell.medium-4
     %br
-    = link_to "Raise a repair for this dwelling", "#" ,:class=>"button"
+    = link_to "Raise a repair for this dwelling", new_property_repair_path(property: @property), :class=>"button"
 
 .grid-x.grid-margin-x.mini-nav
   .nav
