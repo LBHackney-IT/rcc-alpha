@@ -1,11 +1,100 @@
-- if @property.floor
-  = "#{@property.floor}#{@property.floor.ordinal} floor"
-= pluralize @property.residents, 'resident'
-= @property.heating
-= pluralize @property.toilets, 'toilet'
-= pluralize @property.bathrooms, 'bathroom'
+%header
+  .grid-x.grid-margin-x
+    .cell.medium-4
+      %p
+        %strong
+          Property address
+        %span.list-item
+          = @property.address
 
-- @repairs.each do |repair|
-  = repair.problemDescription
-  = link_to repair.repairRequestReference, property_repair_path(@property.propertyReference, repair.repairRequestReference)
-  = repair.priority
+        %span.list-item
+          = @property.postcode
+
+    .cell.medium-8
+      %strong
+        Resident information
+      .grid-x
+        .cell.medium-6
+          %span.list-item
+            John Tenant
+          %span.list-item
+            07556788932
+        .cell.medium-6
+          %span.list-item
+            Cautionary contact
+
+%nav.grid-x.grid-margin-x#sub-nav
+  %ul.cell.menu.expanded
+    %li
+      = link_to "Raise a repair", " "
+    %li.is-active
+      = link_to "Dwelling repairs", " "
+    %li
+      = link_to "Block repairs", " "
+    %li
+      = link_to "Estate repairs", " "
+    %li
+      = link_to "Tenant's Information", " "
+
+.grid-x.grid-margin-x.repairs-list-view.property-summary
+  .cell.medium-8
+    %p
+      %strong
+        Dwelling overview
+    .property-summary
+      - if @property.floor
+        %span
+          = "#{@property.floor}#{@property.floor.ordinal} floor"
+
+      %span
+        = pluralize @property.residents, 'resident'
+      %span
+        = @property.heating
+      %span
+        = pluralize @property.toilets, 'toilet'
+      %span
+        = pluralize @property.bathrooms, 'bathroom'
+
+  .cell.medium-4
+    %br
+    = link_to "Raise a repair for this dwelling", "#" ,:class=>"button"
+
+.grid-x.grid-margin-x.mini-nav
+  .nav
+    .ul.breadcrumbs
+      %li
+        Dwelling repairs history
+
+.grid-x.grid-margin-x.repairs-list-view.repairs-history
+  .cell.medium-8
+
+    - @repairs.each do |repair|
+      .repair.card.status-progress
+        .card-section
+          .grid-x
+            .cell
+              -# repair_req_number
+              %span.leading-number
+                = link_to repair.repairRequestReference, property_repair_path(@property.propertyReference, repair.repairRequestReference)
+              -# Repair priority
+              %span.priority
+                = repair.priority
+              %span.date
+                Created 3 days ago, 20 Jun
+              -# Show each trade from tasks from all WO
+              %span.trade.float-right
+                PLM
+              %hr.tight
+          .grid-x.grid-margin-x
+            .cell
+              %p.repair-description
+                = repair.problemDescription
+            .cell.medium-8
+              -# Repair request status based on completion of tasks in the work order
+              %span.status-text.list-item
+                Tasks awaiting completion
+              -# Summary of status for tasks
+              %span.status-breakdown.list-item
+                1 task in progress, 2 tasks completed
+            .cell.medium-4
+              = link_to "View details", property_repair_path(@property.propertyReference, repair.repairRequestReference)

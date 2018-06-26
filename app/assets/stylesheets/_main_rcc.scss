@@ -6,32 +6,133 @@
   $cancelled: #af0000;
   $progress: #778899;
 
+  // #0f3057;
+  // #00587a;
+  // #008891;
+  // #e7e7de;
+
+  $side-nav-bg: #00587a;
+  $side-nav-font: $white;
+
 /*
  * Global styles
  */
 
-.main {
-  padding-top: 2em;
+.rcc-app {
+  margin-top: 2em;
+}
+
+nav.top-bar {
+  border-bottom: 2px solid $dark-gray;
+  color: $white;
+
+  a {
+    color: $white;
+  }
+}
+
+.menu {
+  .menu-text {
+    &.light {
+      font-weight: normal;
+    }
+    &.user-name {
+      padding-right: 0;
+    }
+  }
+
 }
 
 .side-nav {
+  padding-top: $global-padding;
   border-right: 1px solid $medium-gray;
-  height: 100vh;
-  background-color: $light-gray;
+  // height: 100vh;
+  color: $side-nav-font;
+  background-color: $side-nav-bg;
+
+  a {
+    color: $white;
+  }
 }
 
-.sidebar {
+.content {
+  padding-top: $global-padding;
+}
+
+.side-info {
   border-left: 1px solid $medium-gray;
-  height: 100vh;
+  min-height: 100vh;
   background-color: $white;
+  padding-top: $global-padding;
 
   p.title {
     margin-bottom: 0;
   }
 }
 
+
+#sub-nav {
+  border-bottom: 2px solid get-color(secondary);
+
+  .menu {
+    margin: auto 0;
+
+    li {
+      border-top: 1px solid $medium-gray;
+      border-right: 1px solid $medium-gray;
+
+      &.is-active {
+        border-top: 1px solid get-color(secondary);
+      }
+
+      a {
+        display: block;
+      }
+
+      &:hover {
+        background-color: lighten(get-color(secondary), 5%);
+
+        a {
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+.repairs-list-view {
+  background-color: #e7e7de;
+
+  &.property-summary {
+
+    span {
+      font-size: 0.9rem;
+    }
+  }
+
+  &.repairs-history {
+    padding-top: $global-padding;
+  }
+}
+
 hr.tight {
   margin: 0.5rem auto;
+}
+
+/*
+ * Breadcrumb nav
+ */
+.mini-nav {
+  background-color: lighten(#e7e7de, 7%);
+  border-top: 2px solid $medium-gray;
+  padding-top: $global-padding;
+  padding-left: $global-padding;
+
+  .breadcrumbs {
+    li {
+      font-weight: bold;
+    }
+  }
 }
 
 /*
@@ -69,7 +170,7 @@ hr.tight {
  * Repair details card
  */
 .repair-details-page {
-  background-color: $light-gray;
+  background-color: #e7e7de;
   padding-top: $global-padding;
 }
 /*

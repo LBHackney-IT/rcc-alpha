@@ -1,5 +1,5 @@
 .grid-x.grid-padding-x
-  .medium-7.cell
+  .medium-7.cell.content
     = form_tag properties_path, method: :get do
       = label_tag 'post_code', 'Find a property by postcode', class: 'h4'
       .input-group
@@ -20,6 +20,6 @@
       - else
         %p No properties found
 
-  .medium-5.cell.sidebar
+  .medium-5.cell.side-info
     - if defined?(@properties) && @properties.present?
       = render partial: 'estate_info'

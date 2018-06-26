@@ -1,5 +1,5 @@
 .grid-x.grid-padding-x
-  .medium-7.cell
+  .medium-7.cell.content
     %h2
       = @property.address
       = @property.postcode
@@ -15,6 +15,6 @@
 
     = link_to "The resident is not on the list", property_repairs_path(@property.propertyReference)
 
-  .medium-5.cell.sidebar
+  .medium-5.cell.side-info
     = render partial: 'dwelling_info'
     = render partial: 'estate_info'

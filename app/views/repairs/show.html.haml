@@ -1,8 +1,74 @@
-= link_to "Go back to repairs history (dwelling)"
-%h4 Repair details
+%header
+  .grid-x.grid-margin-x
+    .cell.medium-4
+      %p
+        %strong
+          Property address
+        %span.list-item
+          = @property.address
+
+        %span.list-item
+          = @property.postcode
+
+    .cell.medium-8
+      %strong
+        Resident information
+      .grid-x
+        .cell.medium-6
+          %span.list-item
+            John Tenant
+          %span.list-item
+            07556788932
+        .cell.medium-6
+          %span.list-item
+            Cautionary contact
+
+%nav.grid-x.grid-margin-x#sub-nav
+  %ul.cell.menu.expanded
+    %li
+      = link_to "Raise a repair", " "
+    %li.is-active
+      = link_to "Dwelling repairs", " "
+    %li
+      = link_to "Block repairs", " "
+    %li
+      = link_to "Estate repairs", " "
+    %li
+      = link_to "Tenant's Information", " "
+
+.grid-x.grid-margin-x.repairs-list-view.property-summary
+  .cell.medium-8
+    %p
+      %strong
+        Dwelling overview
+    .property-summary
+      - if @property.floor
+        %span
+          = "#{@property.floor}#{@property.floor.ordinal} floor"
+
+      %span
+        = pluralize @property.residents, 'resident'
+      %span
+        = @property.heating
+      %span
+        = pluralize @property.toilets, 'toilet'
+      %span
+        = pluralize @property.bathrooms, 'bathroom'
+
+  .cell.medium-4
+    %br
+    = link_to "Raise a repair for this dwelling", "#" ,:class=>"button"
+
+.grid-x.grid-padding-x.mini-nav
+  .nav
+    .ul.breadcrumbs
+      %li
+        = link_to "Dwelling repairs history"
+      %li
+        Repair details (4390916)
+
 .grid-x.grid-padding-x.repair-details-page
   .cell
-
     -# Repair request card
     %h6
       Repair request
