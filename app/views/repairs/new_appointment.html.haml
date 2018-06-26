@@ -1,0 +1,88 @@
+%header
+  .grid-x.grid-margin-x.header-summary
+    .cell.medium-4
+      %p
+        %strong
+          Property address
+        %span.list-item
+          = @property.address
+
+        %span.list-item
+          = @property.postcode
+
+    .cell.medium-8
+      %strong
+        Resident information
+      .grid-x
+        .cell.medium-6
+          %span.list-item
+            John Tenant
+          %span.list-item
+            07556788932
+        .cell.medium-6
+          %span.list-item
+            Cautionary contact
+
+%nav.grid-x.grid-margin-x#sub-nav
+  %ul.cell.menu.expanded
+    %li.is-active
+      = link_to "Raise a repair", " "
+    %li
+      = link_to "Dwelling repairs", " "
+    %li
+      = link_to "Block repairs", " "
+    %li
+      = link_to "Estate repairs", " "
+    %li
+      = link_to "Tenant's Information", " "
+
+
+.grid-x.grid-margin-x.mini-nav
+  .nav
+    .ul.breadcrumbs
+      %li.disabled
+        Raise a repair
+      %li.disabled
+        Add repair details
+      %li
+        Add repair appointment
+
+.grid-x.grid-margin-x.add-repair-section
+  .cell.medium-6.create-repair-form
+    %br
+    %strong
+      Available appointments
+    = form_tag method: :get do
+      %fieldset.fieldset
+        %legend
+          Choose one of the appointment slots
+        %span.list-item
+          = radio_button_tag(:appointment, "1")
+          = label_tag 'appointment_1', 'Monday, 22nd July, 8am-12am'
+        %span.list-item
+          = radio_button_tag(:appointment, "2")
+          = label_tag 'appointment_2', 'Monday, 22nd July, 12pm-4:15pm'
+        %span.list-item
+          = radio_button_tag(:appointment, "3")
+          = label_tag 'appointment_3', 'Monday, 22nd July, 8am-4:15pm'
+
+      %strong
+        If none of these slots work please book an appointment directly in DRS
+
+      %fieldset.fieldset
+        %span.list-item
+          = check_box_tag(:drs)
+          = label_tag 'drs', 'Yes, appointment booked in DRS'
+
+
+
+      = button_tag 'Finish raising repair', class: 'button', type: :submit
+
+  .cell.medium-6
+    .callout.success
+      %h5.text-success
+        Repair created
+      %p
+        Request number: 888484923
+      %p
+        Work Order nuber: 9999999
