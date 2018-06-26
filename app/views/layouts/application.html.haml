@@ -5,7 +5,7 @@
 
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
 
-    %title= content_for?(:title) ? yield(:title) : "Untitled"
+    %title= content_for?(:title) ? yield(:title) : "RCC"
 
     = stylesheet_link_tag "application"
     -# = javascript_include_tag "vendor/modernizr"
@@ -14,11 +14,27 @@
 
   %body
 
-    .grid-container.fluid.main
+    %nav.top-bar
+      .top-bar-left
+        %ul.menu
+          %li.menu-text.app-title
+            Hackney Repairs Contact Centre
+      .top-bar-right
+        %ul.menu
+          %li.menu-text.light.user-name
+            Lisa Roomian
+          %li
+            =link_to "Log out", ' '
+
+    .grid-container.fluid.rcc-app
       .grid-x.grid-padding-x
         .medium-2.cell.side-nav
-          %h4 side nav
+          %ul.vertical.menu
+            %li.menu-item.is-active
+              =link_to "Find address", '/properties'
+            %li.menu-item
+              =link_to "Find repair", '/properties'
 
-        .medium-10.cell
+        .medium-10.cell.main
 
           = yield
