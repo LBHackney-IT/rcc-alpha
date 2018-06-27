@@ -20,7 +20,7 @@
           %span.list-item
             = @repair.contactPhone
         .cell.medium-6
-          %span.list-item
+          %span.list-item.label.warning
             Cautionary contact
 
 %nav.grid-x.grid-margin-x#sub-nav
@@ -184,8 +184,8 @@
                 %p
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
-            - work_order.tasks.each do |task|
-              .cell.medium-6.card-half.no-pad
+            .cell.medium-6.card-half.no-pad
+              - work_order.tasks.each do |task|
                 .task.task-completed
                   .grid-x
                     .cell
