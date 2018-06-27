@@ -19,6 +19,7 @@ RSpec.feature 'Admin can find a property and select resident' do
     click_on '1 Estate House'
     expect(page).to have_content "Jim Resident"
     click_on 'Janet Resident'
+    expect(page).to have_content "Broken Light"
   end
 
   scenario 'with incorrect postcode' do
